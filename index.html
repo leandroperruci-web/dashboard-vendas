@@ -182,9 +182,11 @@ async function loadData(){
   af();rF();rTb();rT("resumo");
 }
 
-// Inicia verificando sessão e carregando dados
-checkSession().then(function(valid){
-  if(valid) loadData();
-});
+// Inicia direto — sessão já foi validada pelo N8N
+if(sid){
+  loadData();
+} else {
+  window.location.href = LOGIN_URL;
+}
 </script>
 </body></html>
